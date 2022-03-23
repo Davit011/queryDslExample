@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts</title>
+</head>
+<body>
+search
+<select id="select">
+    <option value="title" selected>By Title</option>
+    <option value="text">By Text</option>
+</select>
+<input type="text" id="textForSearch">
+<input type="submit" id="search" onclick="filter()">
+<form action="/post/add" method="post">
+    title
+    <input type="text" name="title"><br>
+    text
+    <input type="text" name="text">
+    <input type="submit">
+</form>
+<a href="/post/all">Show All</a>
+<div>
+    <th:block th:each="post:${posts}">
+        title
+        <p  th:text=" ${post.title()}"></p>
+        text
+        <p  th:text="${post.text()}"></p>
+        -------------------------------<br>
+    </th:block>
+</div>
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function filter() {
+        let text = $('#textForSearch').val();
+        let select = $('#select :selected').val();
+        $.ajax({
+            method: "POST",
+            url: "/post/filter",
+            data: {text: text, field: select}
+        })
+    }
+
+
+    // .done(function () {
+    //     Swal.fire({
+    //         icon: 'success',
+    //         title: 'Positions are saved!',
+    //         showConfirmButton: false,
+    //         timer: 1500
+    //     })
+    // });
+</script>

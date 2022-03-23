@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+</head>
+<body>
+  <div>
+    <th:block th:each="post:${posts}">
+        title
+    <p  th:text=" ${post.title()}"></p>
+        text
+    <p  th:text="${post.text()}"></p>
+        -------------------------------<br>
+    </th:block>
+  </div>
+</body>
+</html>
