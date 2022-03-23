@@ -38,7 +38,8 @@ jobs:
         uses: getsentry/action-git-diff-suggestions@v1
         with:
                             # github token
-          github-token: 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
+          github-token: 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
+          #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
                             # The message to prepend the review suggestion
           message: "You have a new suggestion"
       
