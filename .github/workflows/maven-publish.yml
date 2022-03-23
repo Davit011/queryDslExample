@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
   psalm:
     name: Psalm
-    runs-on: ubuntu-latest
+    runs-on: windows-2019
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
