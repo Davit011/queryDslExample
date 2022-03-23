@@ -9,8 +9,7 @@ on:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    runs-on: windows-2019
     permissions:
       contents: read
       packages: write
@@ -42,4 +41,7 @@ jobs:
           #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
                             # The message to prepend the review suggestion
           message: "You have a new suggestion"
-      
+      - name: Yet Another Automerge GitHub Action
+        # You may pin to the exact commit or the version.
+        # uses: DanySK/yaagha@bade429b2c88603688bab014d806533aed64c79f
+        uses: DanySK/yaagha@0.1.2
